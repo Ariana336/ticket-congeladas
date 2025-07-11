@@ -70,8 +70,6 @@
       font-weight: bold;
     }
     #ticket {
-  max-width: 100%;
-  overflow-wrap: break-word;
       background: white;
       padding: 10px;
       border-radius: 20px;
@@ -87,14 +85,14 @@
       </div>
       <div class="redes">
         <div><img src="fb.png" alt="fb" width="16"> @congeladasalicia</div>
-        <div><img src="ig.png" alt="ig" width="16"> @congeladas_alicia</div>
+        <div><img src="ig.png" alt="ig" width="20" style="vertical-align:middle;"> @congeladas_alicia</div>
         <div style="color:purple">5663925531<br>5529603220</div>
       </div>
       <div style="text-align:right; font-weight:bold; color:green" id="fecha"></div>
-      <div class="cliente" style="font-size: 18px;">
-        Nombre del cliente: <input type="text" id="cliente" placeholder="Ej. Alma" style="font-weight:bold; font-size:16px;">
+      <div class="cliente">
+        Nombre del cliente: <input type="text" id="cliente" placeholder="Ej. Alma">
       </div>
-      <table id="tabla">
+      <table id="tabla" style="table-layout: fixed; width: 100%; word-wrap: break-word;">
         <tr>
           <th>CANT.</th><th>DESCRIPCIÓN</th><th>PRECIO UNIT.</th><th>IMPORTE</th>
         </tr>
@@ -110,7 +108,7 @@
     <button onclick="agregarProducto()">➕ Agregar producto</button>
     <button onclick="generarImagen()">📸 Descargar imagen del ticket</button>
     <a id="whatsappLink" target="_blank" style="display:none;">
-      <button>📲 📲 Compartir ticket por WhatsApp (texto)</button>
+      <button>📲 Enviar texto por WhatsApp</button>
     </a>
   </div>
 
@@ -146,7 +144,7 @@
         link.href = canvas.toDataURL();
         link.click();
 
-        const mensaje = `Hola ${cliente}, gracias por tu compra.%0ATotal: ${total}`;
+        const mensaje = `Hola ${cliente}, gracias por tu compra.\nTotal: ${total}`;
         const wa = document.getElementById("whatsappLink");
         wa.href = "https://wa.me/?text=" + encodeURIComponent(mensaje);
         wa.style.display = "block";
